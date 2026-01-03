@@ -1,0 +1,28 @@
+# fly.toml - Fly.io configuration for Butthole Coin site
+
+app = "buttholecoin"
+primary_region = "dfw"
+
+[build]
+# Deploy with: fly deploy --build-arg VITE_HELIUS_API_KEY=your-key
+
+[env]
+  VOLUME_FILE = "/data/volume-data.json"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
+
+# Mount persistent volume for volume tracking data
+[mounts]
+  source = "butthole_data"
+  destination = "/data"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
