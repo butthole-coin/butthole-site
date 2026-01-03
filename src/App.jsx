@@ -1278,11 +1278,21 @@ function IntroBurstParticles({ triggerBurst }) {
 
 // Intro camera that zooms into the ring on burst
 function IntroCamera({ triggerBurst }) {
-  const { camera } = useThree();
+  const { camera, size } = useThree();
   const triggerTime = useRef(null);
+  
+  // Calculate base Z position based on screen aspect ratio
+  // On mobile (narrow screens), move camera back to fit the ring
+  const getBaseZ = () => {
+    const aspect = size.width / size.height;
+    if (aspect < 0.7) return 8; // Very narrow (phone portrait)
+    if (aspect < 1) return 6.5; // Tablet portrait or narrow
+    return 5; // Desktop/landscape
+  };
   
   useFrame((state) => {
     const t = state.clock.elapsedTime;
+    const baseZ = getBaseZ();
     
     if (triggerBurst) {
       if (!triggerTime.current) triggerTime.current = t;
@@ -1291,21 +1301,21 @@ function IntroCamera({ triggerBurst }) {
       // Wait for pinch, then zoom during burst
       if (elapsed < 0.5) {
         // Hold position during pinch
-        camera.position.set(0, 0, 5);
+        camera.position.set(0, 0, baseZ);
       } else {
         // Zoom into the ring after pinch
         const zoomElapsed = elapsed - 0.5;
         const progress = Math.min(zoomElapsed / 1.0, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
         
-        camera.position.z = 5 - eased * 5; // Zoom from 5 to 0
+        camera.position.z = baseZ - eased * baseZ; // Zoom from baseZ to 0
         camera.position.y = eased * 0.3; // Slight upward movement
       }
     } else {
       // Gentle floating camera before trigger
       camera.position.x = Math.sin(t * 0.1) * 0.1;
       camera.position.y = Math.cos(t * 0.15) * 0.1;
-      camera.position.z = 5;
+      camera.position.z = baseZ;
     }
   });
   
