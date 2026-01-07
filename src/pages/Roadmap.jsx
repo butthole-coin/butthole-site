@@ -153,7 +153,6 @@ export default function Roadmap() {
         <div style={{ display: 'flex', gap: '30px' }}>
           <Link to="/" style={{ color: '#666', textDecoration: 'none', fontSize: '12px', letterSpacing: '2px' }}>HOME</Link>
           <Link to="/whitepaper" style={{ color: '#666', textDecoration: 'none', fontSize: '12px', letterSpacing: '2px' }}>WHITEPAPER</Link>
-          <a href="https://buttholecoin.store" target="_blank" rel="noopener noreferrer" style={{ color: '#666', textDecoration: 'none', fontSize: '12px', letterSpacing: '2px' }}>MERCH</a>
         </div>
       </nav>
 

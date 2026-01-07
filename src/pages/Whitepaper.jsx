@@ -144,7 +144,7 @@ Phase 2: THE EXPANSION ✓
 Major CEX listings (MEXC, Gate.io, BitGet, CoinEx, LBank, XT.COM), Forbes feature
 
 Phase 3: THE ASCENSION (In Progress)
-Strategic partnerships, merchandise expansion, community governance, NFT collection
+Strategic partnerships, community governance, NFT collection
 
 Phase 4: WORLD DOMINATION
 Tier 1 exchange listings, $1B market cap, global brand recognition, Butthole DAO
@@ -199,7 +199,6 @@ export default function Whitepaper() {
         <div style={{ display: 'flex', gap: '30px' }}>
           <Link to="/" style={{ color: '#666', textDecoration: 'none', fontSize: '12px', letterSpacing: '2px' }}>HOME</Link>
           <Link to="/roadmap" style={{ color: '#666', textDecoration: 'none', fontSize: '12px', letterSpacing: '2px' }}>ROADMAP</Link>
-          <a href="https://buttholecoin.store" target="_blank" rel="noopener noreferrer" style={{ color: '#666', textDecoration: 'none', fontSize: '12px', letterSpacing: '2px' }}>MERCH</a>
         </div>
       </nav>
 

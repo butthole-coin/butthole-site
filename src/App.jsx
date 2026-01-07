@@ -1570,8 +1570,7 @@ export default function App() {
           {[
             { label: 'SWAP', href: '#swap' },
             { label: 'WHITEPAPER', href: '/whitepaper', internal: true },
-            { label: 'ROADMAP', href: '/roadmap', internal: true },
-            { label: 'MERCH', href: 'https://buttholecoin.store' }
+            { label: 'ROADMAP', href: '/roadmap', internal: true }
           ].map(item => (
             item.internal ? (
               <Link 
@@ -2477,7 +2476,6 @@ export default function App() {
           {[
             { label: 'WHITEPAPER', href: '/whitepaper', internal: true },
             { label: 'ROADMAP', href: '/roadmap', internal: true },
-            { label: 'MERCH', href: 'https://buttholecoin.store' },
             { label: 'SWAP', href: 'https://butthole.exchange' }
           ].map(link => (
             link.internal ? (
